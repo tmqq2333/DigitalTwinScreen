@@ -13,20 +13,19 @@ import '@/assets/iconfont/iconfont.css'
 Vue.use(vueParticles)
 Vue.use(Vcomp)
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。避免无用的体积
 
 Vue.prototype.$Toast = Toast
 
-
 router.beforeEach((to, from, next) => {
-	if (to.meta.title) {
-	document.title = to.meta.title;
-	}
-	next();
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
+  next()
 })
 
 new Vue({
   router,
   store,
-  render: h => h(App),
+  render: (h) => h(App)
 }).$mount('#app')

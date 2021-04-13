@@ -29,7 +29,7 @@ import rainbow from './rainbow' // 彩虹轨道图
 import gauge from './gauge' // 仪表盘
 import waterPolo from './waterPolo' // 水球图
 import circleNesting from './circleNesting' // 圆环套圆环
-import Footer from './footer/footer.vue'
+import Footer from './footer/footer.vue' //导航图标
 
 import business from './companySummary/business' // 业务范围
 import talent from './companySummary/talent' // 人才队伍
@@ -37,10 +37,6 @@ import income from './companySummary/income' // 营业收入
 import wordCloud from './companySummary/wordCloud' // 产品热词
 import distribution from './companySummary/distribution' // 客户分布
 import history from './companySummary/history' // 发展历程
-
-
-
-
 
 const components = {
   bgAnimation,
@@ -76,28 +72,27 @@ const components = {
   distribution,
   history,
   Footer
-};
+}
 
 const install = (Vue = {}) => {
-  if (install.installed) return;
-  Object.keys(components).forEach(component => {
-    Vue.component(components[component].name, components[component]);
-  });
+  if (install.installed) return
+  Object.keys(components).forEach((component) => {
+    Vue.component(components[component].name, components[component])
+  })
 
-  install.installed = true;
-};
+  install.installed = true
+}
 
-install.installed = false;
+install.installed = false
 
-if (typeof window !== "undefined" && window.Vue) {
-  install(window.Vue);
-  install.installed = true;
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue)
+  install.installed = true
 }
 
 const Vcomp = {
   ...components,
   install
-};
-
+}
 
 export default Vcomp

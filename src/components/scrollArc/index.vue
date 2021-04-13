@@ -10,8 +10,7 @@
       <div class="sn-title">滚动弧形线</div>
       <div class="sn-body">
         <div class="wrap-container">
-          <div class="chartsdom"
-               id="chart_arc"></div>
+          <div class="chartsdom" id="chart_arc"></div>
         </div>
       </div>
     </div>
@@ -20,8 +19,8 @@
 
 <script>
 export default {
-  name: "scrollArc",
-  data () {
+  name: 'scrollArc',
+  data() {
     return {
       option: null,
       number: 0, // 播放所在下标
@@ -30,12 +29,12 @@ export default {
       data: [54, 86, 46, 77, 96, 89, 88, 23, 38, 3, 66, 98]
     }
   },
-  mounted () {
-    this.getEchart();
+  mounted() {
+    this.getEchart()
   },
   methods: {
-    getEchart () {
-      let myChart = echarts.init(document.getElementById('chart_arc'));
+    getEchart() {
+      let myChart = echarts.init(document.getElementById('chart_arc'))
       this.option = {
         tooltip: {
           trigger: 'axis',
@@ -43,15 +42,18 @@ export default {
           axisPointer: {
             type: 'shadow',
             shadowStyle: {
-              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                offset: 1,
-                color: '#5d83ff'
-              }, {
-                offset: 0,
-                color: 'rgba(255, 255, 255, 0)'
-              }])
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                {
+                  offset: 1,
+                  color: '#5d83ff'
+                },
+                {
+                  offset: 0,
+                  color: 'rgba(255, 255, 255, 0)'
+                }
+              ])
             }
-          },
+          }
         },
         color: ['#5d83ff'],
         grid: {
@@ -73,9 +75,9 @@ export default {
           },
           axisLine: {
             lineStyle: {
-              color: '#999',
+              color: '#999'
             }
-          },
+          }
         },
         yAxis: {
           type: 'value',
@@ -84,68 +86,73 @@ export default {
             lineStyle: {
               color: '#999'
             }
-          },
+          }
         },
-        series: [{
-          name: '人数',
-          type: 'line',
-          data: this.data,
-          symbolSize: 10,
-          itemStyle: {
-            opacity: 0,
-          },
-          emphasis: {
-            label: {
-              show: true,
-              color: '#fff',
-              fontSize: 20
-            },
+        series: [
+          {
+            name: '人数',
+            type: 'line',
+            data: this.data,
+            symbolSize: 10,
             itemStyle: {
-              color: '#5d83ff',
-              borderColor: '#fff',
-              borderWidth: 2,
-              opacity: 1
+              opacity: 0
             },
-          },
-          areaStyle: {
-            normal: {
-              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                offset: 0,
-                color: '#5d83ff'
-              }, {
-                offset: 1,
-                color: 'rgba(0, 0, 0, 0)'
-              }]),
-            }
-          },
-          smooth: true,
-        }]
-      };
-      myChart.setOption(this.option, true);
+            emphasis: {
+              label: {
+                show: true,
+                color: '#fff',
+                fontSize: 20
+              },
+              itemStyle: {
+                color: '#5d83ff',
+                borderColor: '#fff',
+                borderWidth: 2,
+                opacity: 1
+              }
+            },
+            areaStyle: {
+              normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  {
+                    offset: 0,
+                    color: '#5d83ff'
+                  },
+                  {
+                    offset: 1,
+                    color: 'rgba(0, 0, 0, 0)'
+                  }
+                ])
+              }
+            },
+            smooth: true
+          }
+        ]
+      }
+      myChart.setOption(this.option, true)
 
       window.addEventListener('resize', () => {
-        myChart.resize();
-      });
+        myChart.resize()
+      })
 
       this.timer = setInterval(() => {
         myChart.dispatchAction({
           type: 'showTip',
-          seriesIndex: 0,
-          dataIndex: this.number
-        });
+          seriesIndex: 0, //指定取哪个系列的数据，即哪个系列的 series.data
+          dataIndex: this.number //如果 series.data 没有指定，并且 dataset 存在，那么就会使用 dataset。datasetIndex 指定本系列使用那个 dataset
+        })
 
-        this.number++;
+        this.number++
 
         if (this.number > this.data.length) {
-          this.number = 0;
+          this.number = 0
         }
-      }, 1000);
+      }, 1000)
     }
   },
-  beforeDestroy () {
-    clearInterval(this.timer);
+  beforeDestroy() {
+    clearInterval(this.timer)
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

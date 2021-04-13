@@ -10,8 +10,7 @@
       <div class="sn-title">双轴柱状图</div>
       <div class="sn-body">
         <div class="wrap-container">
-          <div class="chartsdom"
-               id="chart_bar"></div>
+          <div class="chartsdom" id="chart_bar"></div>
         </div>
       </div>
     </div>
@@ -20,22 +19,22 @@
 
 <script>
 export default {
-  name: "szBar",
-  data () {
+  name: 'szBar',
+  data() {
     return {
       option: null,
       xAxisData: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       yData1: [9, 12, 15, 18, 15, 12, 9, 12, 15, 18, 15, 12],
-      yData2: [-9, -12, -15, -18, -15, -12, -9, -12, -15, -18, -15, -12],
+      yData2: [-9, -12, -15, -18, -15, -12, -9, -12, -15, -18, -15, -12]
     }
   },
-  mounted () {
-    this.getEchart();
+  mounted() {
+    this.getEchart()
   },
   methods: {
-    getEchart () {
-      let myChart = echarts.init(document.getElementById('chart_bar'));
-      let barWidth = '10%';
+    getEchart() {
+      let myChart = echarts.init(document.getElementById('chart_bar'))
+      let barWidth = '10%'
       let dataCoord = [
         { coord: [0, 9] },
         { coord: [1, 12] },
@@ -48,8 +47,8 @@ export default {
         { coord: [8, 15] },
         { coord: [9, 18] },
         { coord: [10, 15] },
-        { coord: [11, 12] },
-      ];
+        { coord: [11, 12] }
+      ]
       let dataCoord2 = [
         { coord: [0, -9] },
         { coord: [1, -12] },
@@ -62,8 +61,8 @@ export default {
         { coord: [8, -15] },
         { coord: [9, -18] },
         { coord: [10, -15] },
-        { coord: [11, -12] },
-      ];
+        { coord: [11, -12] }
+      ]
 
       this.option = {
         xAxis: {
@@ -78,9 +77,9 @@ export default {
           axisLine: {
             show: true,
             lineStyle: {
-              color: 'rgba(40, 103, 168, 0.3)',
+              color: 'rgba(40, 103, 168, 0.3)'
             }
-          },
+          }
         },
         yAxis: {
           axisLabel: {
@@ -97,7 +96,7 @@ export default {
             lineStyle: {
               color: 'rgba(40, 103, 168, 0.3)'
             }
-          },
+          }
         },
         grid: {
           top: 20,
@@ -110,23 +109,28 @@ export default {
           {
             name: '正值柱状图',
             type: 'bar',
-            stack: 'one',
+            stack: 'one', //数据堆叠，同个类目轴上系列配置相同的stack值可以堆叠放置。
             itemStyle: {
               normal: {
-                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                  offset: 1,
-                  color: 'rgba(0, 0, 0, 0)'
-                }, {
-                  offset: 0.5,
-                  color: '#466e71'
-                }, {
-                  offset: 0,
-                  color: '#eb9b44'
-                }])
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  {
+                    offset: 1,
+                    color: 'rgba(0, 0, 0, 0)'
+                  },
+                  {
+                    offset: 0.5,
+                    color: '#466e71'
+                  },
+                  {
+                    offset: 0,
+                    color: '#eb9b44'
+                  }
+                ])
               }
             },
             barWidth: barWidth,
             markPoint: {
+              //图表标注 柱状图指向数据的图形
               symbol: 'circle',
               itemStyle: {
                 normal: {
@@ -137,7 +141,7 @@ export default {
               },
               symbolSize: [10, 10], // 容器大小
               symbolOffset: [0, 0], // 位置偏移
-              data: dataCoord,
+              data: dataCoord
             },
             data: this.yData1
           },
@@ -147,16 +151,20 @@ export default {
             stack: 'one',
             itemStyle: {
               normal: {
-                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                  offset: 0,
-                  color: 'rgba(0, 0, 0, 0)'
-                }, {
-                  offset: 0.5,
-                  color: '#774a75'
-                }, {
-                  offset: 1,
-                  color: '#b34d69'
-                }])
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  {
+                    offset: 0,
+                    color: 'rgba(0, 0, 0, 0)'
+                  },
+                  {
+                    offset: 0.5,
+                    color: '#774a75'
+                  },
+                  {
+                    offset: 1,
+                    color: '#b34d69'
+                  }
+                ])
               }
             },
             barWidth: barWidth,
@@ -171,23 +179,21 @@ export default {
               },
               symbolSize: [10, 10],
               symbolOffset: [0, 0],
-              data: dataCoord2,
+              data: dataCoord2
             },
             data: this.yData2
           }
         ]
-      };
-      myChart.setOption(this.option, true);
+      }
+      myChart.setOption(this.option, true)
 
       window.addEventListener('resize', () => {
-        myChart.resize();
-      });
+        myChart.resize()
+      })
     }
   },
-  beforeDestroy () {
-
-  }
-};
+  beforeDestroy() {}
+}
 </script>
 
 <style lang="scss" scoped>

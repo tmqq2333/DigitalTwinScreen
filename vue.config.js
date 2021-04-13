@@ -1,9 +1,9 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === "production" ? "/vueDataV/" : "/",
+  publicPath: process.env.NODE_ENV === 'production' ? '/DigitalTwinScreen/' : '/',
   productionSourceMap: false,
   lintOnSave: false,
   devServer: {
-    port: 8081,
+    port: 8081
     // proxy: {
     //   "/api": {
     //     target: "https://api.github.com",
@@ -18,9 +18,9 @@ module.exports = {
   configureWebpack: {
     // 把原本需要写在webpack.config.js中的配置代码 写在这里 会自动合并
     externals: {
-     'jquery' : '$',
-     'echarts': 'echarts',
-     'axios' : 'axios'
+      jquery: '$',
+      echarts: 'echarts',
+      axios: 'axios'
     }
   }
-};
+}

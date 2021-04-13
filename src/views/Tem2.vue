@@ -1,7 +1,6 @@
 <template>
   <div class="home-container">
-    <div class="wrap"
-         ref="editor">
+    <div class="wrap" ref="editor">
       <div class="top"></div>
 
       <sinan />
@@ -10,36 +9,26 @@
       <szBar />
       <Footer />
 
-      <div class="divider">555555555555</div>
-
+      <div class="divider"></div>
     </div>
-
   </div>
 </template>
 
 <script>
 import { screenSize } from '@/assets/js/utils'
 
-
 export default {
   name: 'Tem2',
 
-  data () {
-    return {
-
-    }
+  data() {
+    return {}
   },
-  computed: {
-
+  computed: {},
+  created() {},
+  mounted() {
+    screenSize(this.$refs.editor)
   },
-  created () {
-  },
-  mounted () {
-    screenSize(this.$refs.editor);
-  },
-  methods: {
-
-  }
+  methods: {}
 }
 </script>
 
