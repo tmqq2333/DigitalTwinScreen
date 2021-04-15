@@ -1,13 +1,15 @@
 <template>
   <div id="app" v-cloak>
-    <router-view/>
+    <transition name="slide-left">
+      <router-view />
+    </transition>
   </div>
 </template>
 
 <script>
 export default {
-  name: "App"
-};
+  name: 'App'
+}
 </script>
 
 <style lang="scss">
@@ -20,5 +22,25 @@ export default {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+.slide-left-enter {
+  opacity: 0;
+  -webkit-transform: translate(30px, 0);
+  transform: translate(30px, 0);
+}
+
+.slide-left-enter-active {
+  transition: all 0.5s ease;
+}
+
+.slide-left-leave-to {
+  opacity: 0;
+  -webkit-transform: translate(-30px, 0);
+  transform: translate(-30px, 0);
+  display: none;
+}
+
+.slide-left-leave-active {
+  transition: all 0.5s ease;
 }
 </style>

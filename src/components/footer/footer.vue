@@ -1,12 +1,12 @@
 <template>
   <div class="footer" v-drag>
-    <div class="map conic" @click="maptt" >
+    <div class="map conic" @click="maptt">
       <button v-on:click="show = !show">点我</button>
       <p>11111</p>
     </div>
     <transition name="slide-left">
       <ul v-show="show">
-        <li >
+        <li>
           <router-link to="/home">
             <p>首页</p>
           </router-link>
@@ -28,6 +28,16 @@
           </router-link>
         </li>
       </ul>
+      <!-- <div class="nav-bak-inner">
+<div class="nav-item"><div class="nav-center"></div>
+<div class="nav-link">
+<div class="nav-item-link"><div class="nav-bg-link"><span class="nav-text-link">链接三1</span></div></div>
+<div class="nav-item-link"><div class="nav-bg-link"><span class="nav-text-link">链接三2</span></div></div>
+<div class="nav-item-link"><div class="nav-bg-link"><span class="nav-text-link">链接三3</span></div></div>
+<div class="nav-item-link"><div class="nav-bg-link"><span class="nav-text-link">链接三4</span></div></div>
+</div>
+</div>
+</div> -->
     </transition>
   </div>
 </template>
@@ -118,13 +128,13 @@ export default {
     height: 35px;
     position: absolute;
     left: 64px;
-    bottom:45px;
+    bottom: 45px;
     display: flex;
     justify-content: space-between;
     background-color: #393484;
     li {
-      &:nth-child(1){
-      margin-left: 80px;
+      &:nth-child(1) {
+        margin-left: 80px;
       }
       width: 100px;
       height: 76px;
@@ -136,59 +146,58 @@ export default {
 }
 
 @keyframes rotate {
-    100% {
-        transform: rotate(1turn);
-    }
+  100% {
+    transform: rotate(1turn);
+  }
 }
 
 .conic {
-    position: relative;
-    z-index: 0;
-    margin: 20px;
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 30px;
-     width: 20px;
-    height: 20px;
-    &::before {
-        content: '';
-        position: absolute;
-        z-index: -2;
-        left: -50%;
-        top: -50%;
-        width: 200%;
-        height: 200%;
-        background-color: #1a232a;
-        background-repeat: no-repeat;
-        background-position: 0 0;
-        background-image: conic-gradient(transparent, rgba(168, 239, 255, 1), transparent 30%);
-        animation: rotate 4s linear infinite;
-    }
-    
-    &::after {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        left: 6px;
-        top: 6px;
-        border-radius:50%;
-        width: calc(100% - 12px);
-        height: calc(100% - 12px);
-        background: #000;
-    }
+  position: relative;
+  z-index: 0;
+  margin: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 30px;
+  width: 20px;
+  height: 20px;
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-color: #1a232a;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-image: conic-gradient(transparent, rgba(168, 239, 255, 1), transparent 30%);
+    animation: rotate 4s linear infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 6px;
+    top: 6px;
+    border-radius: 50%;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    background: #000;
+  }
 }
 
 .conic-demo::after {
-    animation: opacityChange 5s infinite linear;
+  animation: opacityChange 5s infinite linear;
 }
 
 @keyframes opacityChange {
-    50% {
-        opacity:.5;
-    }
-    100% {
-        opacity: 1;
-    }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-
 </style>

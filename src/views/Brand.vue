@@ -9,11 +9,11 @@
     <div class="wrap">
       <header>
         <div class="weather">
-          <img :src="imgSrc">
+          <img :src="imgSrc" />
           <span class="tem">{{ weatcherData.tem }}°C</span>
           <span class="wea">{{ weatcherData.wea }}</span>
         </div>
-        <h2>区块链科技公司品牌概览</h2>
+        <h2>针对单个污水厂数据概览</h2>
         <div class="showTime">
           <span class="time">{{ nowTime }}</span>
           <span class="date">
@@ -47,22 +47,28 @@
             <div class="resume-hd">
               <ul>
                 <li>
-                  <countTo :startVal='startVal'
-                           :endVal='490'
-                           :duration='6000'
-                           separator=""></countTo>
+                  <countTo
+                    :startVal="startVal"
+                    :endVal="490"
+                    :duration="6000"
+                    separator=""
+                  ></countTo>
                 </li>
                 <li>
-                  <countTo :startVal='startVal'
-                           :endVal='75'
-                           :duration='6000'
-                           separator=""></countTo>
+                  <countTo
+                    :startVal="startVal"
+                    :endVal="75"
+                    :duration="6000"
+                    separator=""
+                  ></countTo>
                 </li>
                 <li>
-                  <countTo :startVal='startVal'
-                           :endVal='3000'
-                           :duration='6000'
-                           separator=""></countTo>
+                  <countTo
+                    :startVal="startVal"
+                    :endVal="3000"
+                    :duration="6000"
+                    separator=""
+                  ></countTo>
                 </li>
               </ul>
             </div>
@@ -75,8 +81,7 @@
             </div>
           </div>
           <div class="map">
-            <div class="chart"
-                 id="chart_map"></div>
+            <div class="chart" id="chart_map"></div>
             <div class="map1"></div>
             <div class="map2"></div>
             <div class="map3"></div>
@@ -101,7 +106,6 @@
           </div>
         </div>
       </section>
-
     </div>
     <Footer />
   </div>
@@ -112,14 +116,12 @@ import '@/assets/js/flexible'
 import '@/assets/js/china'
 import countTo from 'vue-count-to'
 
-
 export default {
   name: 'Brand',
   components: {
     countTo
-
   },
-  data () {
+  data() {
     return {
       nowTime: '',
       week: '',
@@ -130,117 +132,121 @@ export default {
       startVal: 0,
       geoCoordMap: {},
       XAData: [
-        [{ name: "长沙" }, { name: "北京", value: 100 }],
-        [{ name: "长沙" }, { name: "上海", value: 100 }],
-        [{ name: "长沙" }, { name: "广州", value: 100 }],
-        [{ name: "长沙" }, { name: "深圳", value: 100 }],
-        [{ name: "长沙" }, { name: "西安", value: 100 }]
+        [{ name: '长沙' }, { name: '北京', value: 100 }],
+        [{ name: '长沙' }, { name: '上海', value: 100 }],
+        [{ name: '长沙' }, { name: '广州', value: 100 }],
+        [{ name: '长沙' }, { name: '深圳', value: 100 }],
+        [{ name: '长沙' }, { name: '西安', value: 100 }]
       ],
       XNData: [
-        [{ name: "长沙" }, { name: "西宁", value: 100 }],
-        [{ name: "长沙" }, { name: "拉萨", value: 100 }],
-        [{ name: "长沙" }, { name: "哈尔滨", value: 100 }],
-        [{ name: "长沙" }, { name: "成都", value: 100 }],
-        [{ name: "长沙" }, { name: "重庆", value: 100 }]
+        [{ name: '长沙' }, { name: '西宁', value: 100 }],
+        [{ name: '长沙' }, { name: '拉萨', value: 100 }],
+        [{ name: '长沙' }, { name: '哈尔滨', value: 100 }],
+        [{ name: '长沙' }, { name: '成都', value: 100 }],
+        [{ name: '长沙' }, { name: '重庆', value: 100 }]
       ],
       YCData: [
-        [{ name: "北京" }, { name: "长沙", value: 100 }],
-        [{ name: "北京" }, { name: "贵阳", value: 100 }],
-        [{ name: "北京" }, { name: "杭州", value: 100 }]
+        [{ name: '北京' }, { name: '长沙', value: 100 }],
+        [{ name: '北京' }, { name: '贵阳', value: 100 }],
+        [{ name: '北京' }, { name: '杭州', value: 100 }]
       ]
-
     }
   },
-  computed: {
-
-  },
-  created () {
-  },
-  mounted () {
-    this.getWeather();
+  computed: {},
+  created() {},
+  mounted() {
+    this.getWeather()
     this.timer = setInterval(() => {
-      this.getWeather();
+      this.getWeather()
     }, 1000 * 60 * 60)
 
-    this.nowTimes();
-    this.getEchart();
+    this.nowTimes()
+    this.getEchart()
   },
   methods: {
-    timeFormate (timeStamp) { //显示当前时间
-      let newDate = new Date(timeStamp);
-      let year = newDate.getFullYear();
-      let month = newDate.getMonth() + 1 < 10 ? '0' + (newDate.getMonth() + 1) : newDate.getMonth() + 1;
-      let date = newDate.getDate() < 10 ? '0' + newDate.getDate() : newDate.getDate();
-      let hh = newDate.getHours() < 10 ? '0' + newDate.getHours() : newDate.getHours();
-      let mm = newDate.getMinutes() < 10 ? '0' + newDate.getMinutes() : newDate.getMinutes();
-      let ss = newDate.getSeconds() < 10 ? '0' + newDate.getSeconds() : newDate.getSeconds();
-      let week = newDate.getDay();
-      let weeks = ['日', '一', '二', '三', '四', '五', '六'];
-      let getWeek = '星期' + weeks[week];
-      this.week = getWeek;
-      this.date = year + '.' + month + '.' + date;
-      this.nowTime = hh + ':' + mm + ':' + ss;
+    timeFormate(timeStamp) {
+      //显示当前时间
+      let newDate = new Date(timeStamp)
+      let year = newDate.getFullYear()
+      let month =
+        newDate.getMonth() + 1 < 10 ? '0' + (newDate.getMonth() + 1) : newDate.getMonth() + 1
+      let date = newDate.getDate() < 10 ? '0' + newDate.getDate() : newDate.getDate()
+      let hh = newDate.getHours() < 10 ? '0' + newDate.getHours() : newDate.getHours()
+      let mm = newDate.getMinutes() < 10 ? '0' + newDate.getMinutes() : newDate.getMinutes()
+      let ss = newDate.getSeconds() < 10 ? '0' + newDate.getSeconds() : newDate.getSeconds()
+      let week = newDate.getDay()
+      let weeks = ['日', '一', '二', '三', '四', '五', '六']
+      let getWeek = '星期' + weeks[week]
+      this.week = getWeek
+      this.date = year + '.' + month + '.' + date
+      this.nowTime = hh + ':' + mm + ':' + ss
     },
-    nowTimes () {
-      this.timeFormate(new Date());
-      setInterval(this.nowTimes, 1000);
-      this.clear();
+    nowTimes() {
+      this.timeFormate(new Date())
+      setInterval(this.nowTimes, 1000)
+      this.clear()
     },
-    clear () {
+    clear() {
       clearInterval(this.nowTimes)
-      this.nowTimes = null;
+      this.nowTimes = null
     },
-    getWeather () { // 第三方天气api接口
-      axios.get('https://www.tianqiapi.com/api/', {
-        params: {
-          appid: '26148275',
-          appsecret: '2id6H48Y',
-          version: 'v6'
-        }
-      }).then(res => {
-        if (res.data) {
-          if (res.data.wea_img == 'xue') {
-            this.imgSrc = require('../assets/img/brand/xue.png');
-          } else if (res.data.wea_img == 'yin') {
-            this.imgSrc = require('../assets/img/brand/yin.png');
-          } else if (res.data.wea_img == 'yu' || res.data.wea_img == 'bingbao') {
-            this.imgSrc = require('../assets/img/brand/yu.png');
-          } else if (res.data.wea_img == 'yun') {
-            this.imgSrc = require('../assets/img/brand/yun.png');
-          } else if (res.data.wea_img == 'wu') {
-            this.imgSrc = require('../assets/img/brand/wu.png');
-          } else if (res.data.wea_img == 'shachen') {
-            this.imgSrc = require('../assets/img/brand/shachen.png');
-          } else if (res.data.wea_img == 'lei') {
-            this.imgSrc = require('../assets/img/brand/lei.png');
-          } else {
-            this.imgSrc = require('../assets/img/brand/qing.png');
+    getWeather() {
+      // 第三方天气api接口
+      axios
+        .get('https://www.tianqiapi.com/api/', {
+          params: {
+            appid: '26148275',
+            appsecret: '2id6H48Y',
+            version: 'v6'
           }
-          this.weatcherData = res.data;
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+        })
+        .then((res) => {
+          if (res.data) {
+            if (res.data.wea_img == 'xue') {
+              this.imgSrc = require('../assets/img/brand/xue.png')
+            } else if (res.data.wea_img == 'yin') {
+              this.imgSrc = require('../assets/img/brand/yin.png')
+            } else if (res.data.wea_img == 'yu' || res.data.wea_img == 'bingbao') {
+              this.imgSrc = require('../assets/img/brand/yu.png')
+            } else if (res.data.wea_img == 'yun') {
+              this.imgSrc = require('../assets/img/brand/yun.png')
+            } else if (res.data.wea_img == 'wu') {
+              this.imgSrc = require('../assets/img/brand/wu.png')
+            } else if (res.data.wea_img == 'shachen') {
+              this.imgSrc = require('../assets/img/brand/shachen.png')
+            } else if (res.data.wea_img == 'lei') {
+              this.imgSrc = require('../assets/img/brand/lei.png')
+            } else {
+              this.imgSrc = require('../assets/img/brand/qing.png')
+            }
+            this.weatcherData = res.data
+          }
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     },
-    convertData (data) { // 地图数据转换
-      let res = [];
+    convertData(data) {
+      // 地图数据转换
+      let res = []
       for (let i = 0; i < data.length; i++) {
-        let dataItem = data[i];
-        let fromCoord = this.geoCoordMap[dataItem[0].name];
-        let toCoord = this.geoCoordMap[dataItem[1].name];
+        let dataItem = data[i]
+        let fromCoord = this.geoCoordMap[dataItem[0].name]
+        let toCoord = this.geoCoordMap[dataItem[1].name]
         if (fromCoord && toCoord) {
           res.push({
             fromName: dataItem[0].name,
             toName: dataItem[1].name,
             coords: [fromCoord, toCoord],
             value: dataItem[1].value
-          });
+          })
         }
       }
-      return res;
+      return res
     },
-    getEchart () { // 初始化地图数据
-      let myChart = echarts.init(document.getElementById('chart_map'));
+    getEchart() {
+      // 初始化地图数据
+      let myChart = echarts.init(document.getElementById('chart_map'))
 
       this.geoCoordMap = {
         上海: [121.4648, 31.2891],
@@ -357,28 +363,29 @@ export default {
         阳泉: [113.4778, 38.0951],
         青岛: [120.4651, 36.3373],
         韶关: [113.7964, 24.7028]
-      };
+      }
 
-      let planePath = "path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z";
+      let planePath =
+        'path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z'
 
-      let color = ["#fff", "#fff", "#fff"]; //航线的颜色
-      let series = [];
+      let color = ['#fff', '#fff', '#fff'] //航线的颜色
+      let series = []
 
-      [
-        ["长沙", this.XAData],
-        ["长沙", this.XNData],
-        ["北京", this.YCData]
+      ;[
+        ['长沙', this.XAData],
+        ['长沙', this.XNData],
+        ['北京', this.YCData]
       ].forEach((item, i) => {
         series.push(
           {
-            name: item[0] + " Top3",
-            type: "lines",
+            name: item[0] + ' Top3',
+            type: 'lines',
             zlevel: 1,
             effect: {
               show: true,
               period: 6,
               trailLength: 0.7,
-              color: "red", //arrow箭头的颜色
+              color: 'red', //arrow箭头的颜色
               symbolSize: 3
             },
             lineStyle: {
@@ -391,10 +398,10 @@ export default {
             data: this.convertData(item[1])
           },
           {
-            name: item[0] + " Top3",
-            type: "lines",
+            name: item[0] + ' Top3',
+            type: 'lines',
             zlevel: 2,
-            symbol: ["none", "arrow"],
+            symbol: ['none', 'arrow'],
             symbolSize: 10,
             effect: {
               show: true,
@@ -414,66 +421,60 @@ export default {
             data: this.convertData(item[1])
           },
           {
-            name: item[0] + " Top3",
-            type: "effectScatter",
-            coordinateSystem: "geo",
+            name: item[0] + ' Top3',
+            type: 'effectScatter',
+            coordinateSystem: 'geo',
             zlevel: 2,
             rippleEffect: {
-              brushType: "stroke"
+              brushType: 'stroke'
             },
             label: {
               normal: {
                 show: true,
-                position: "right",
-                formatter: "{b}"
+                position: 'right',
+                formatter: '{b}'
               }
             },
             symbolSize: (val) => {
-              return val[2] / 8;
+              return val[2] / 8
             },
             itemStyle: {
               normal: {
                 color: color[i]
               },
               emphasis: {
-                areaColor: "#2B91B7"
+                areaColor: '#2B91B7'
               }
             },
             data: item[1].map((dataItem) => {
               return {
                 name: dataItem[1].name,
                 value: this.geoCoordMap[dataItem[1].name].concat([dataItem[1].value])
-              };
+              }
             })
           }
-        );
-      });
+        )
+      })
 
       let option = {
         tooltip: {
-          trigger: "item",
+          trigger: 'item',
           formatter: (params, ticket, callback) => {
-            if (params.seriesType == "effectScatter") {
-              return "线路：" + params.data.name + "" + params.data.value[2];
-            } else if (params.seriesType == "lines") {
-              return (
-                params.data.fromName +
-                ">" +
-                params.data.toName +
-                "<br />" +
-                params.data.value
-              );
+            if (params.seriesType == 'effectScatter') {
+              return '线路：' + params.data.name + '' + params.data.value[2]
+            } else if (params.seriesType == 'lines') {
+              return params.data.fromName + '>' + params.data.toName + '<br />' + params.data.value
             } else {
-              return params.name;
+              return params.name
             }
           }
         },
         geo: {
-          map: "china",
+          map: 'china',
           label: {
             emphasis: {
               show: true,
-              color: "#fff"
+              color: '#fff'
             }
           },
           roam: false,
@@ -481,27 +482,27 @@ export default {
           zoom: 1,
           itemStyle: {
             normal: {
-              areaColor: "rgba(43, 196, 243, 0.42)",
-              borderColor: "rgba(43, 196, 243, 1)",
+              areaColor: 'rgba(43, 196, 243, 0.42)',
+              borderColor: 'rgba(43, 196, 243, 1)',
               borderWidth: 1
             },
             emphasis: {
-              areaColor: "#2B91B7"
+              areaColor: '#2B91B7'
             }
           }
         },
         series: series
       }
 
-      myChart.setOption(option, true);
+      myChart.setOption(option, true)
 
-      window.addEventListener("resize", () => {
-        myChart.resize();
-      });
+      window.addEventListener('resize', () => {
+        myChart.resize()
+      })
     }
   },
-  beforeDestroy () {
-    clearInterval(this.timer);
+  beforeDestroy() {
+    clearInterval(this.timer)
   }
 }
 </script>
@@ -590,7 +591,7 @@ export default {
               ul {
                 display: flex;
                 %li-line {
-                  content: "";
+                  content: '';
                   position: absolute;
                   height: 50%;
                   width: 1px;
@@ -606,7 +607,7 @@ export default {
                   font-size: 0.65rem;
                   color: #ffeb7b;
                   padding: 0.05rem 0;
-                  font-family: "DIGITALDREAMFAT";
+                  font-family: 'DIGITALDREAMFAT';
                   font-weight: bold;
                   &:nth-child(2) {
                     &:after {
@@ -621,7 +622,7 @@ export default {
                 }
               }
               &:before {
-                content: "";
+                content: '';
                 position: absolute;
                 width: 30px;
                 height: 10px;
@@ -631,7 +632,7 @@ export default {
                 left: 0;
               }
               &:after {
-                content: "";
+                content: '';
                 position: absolute;
                 width: 30px;
                 height: 10px;
@@ -706,15 +707,14 @@ export default {
           position: relative;
           height: 3.875rem;
           border: 1px solid rgba(25, 186, 139, 0.17);
-          background: rgba(255, 255, 255, 0.04)
-            url(../assets/img/brand/line.png);
+          background: rgba(255, 255, 255, 0.04) url(../assets/img/brand/line.png);
           padding: 0 0.1875rem 0;
           margin-bottom: 0.1875rem;
           &:before {
             position: absolute;
             top: 0;
             left: 0;
-            content: "";
+            content: '';
             width: 10px;
             height: 10px;
             border-top: 2px solid #02a6b5;
@@ -724,7 +724,7 @@ export default {
             position: absolute;
             top: 0;
             right: 0;
-            content: "";
+            content: '';
             width: 10px;
             height: 10px;
             border-top: 2px solid #02a6b5;
@@ -740,7 +740,7 @@ export default {
               position: absolute;
               bottom: 0;
               left: 0;
-              content: "";
+              content: '';
               width: 10px;
               height: 10px;
               border-bottom: 2px solid #02a6b5;
@@ -750,7 +750,7 @@ export default {
               position: absolute;
               bottom: 0;
               right: 0;
-              content: "";
+              content: '';
               width: 10px;
               height: 10px;
               border-bottom: 2px solid #02a6b5;
