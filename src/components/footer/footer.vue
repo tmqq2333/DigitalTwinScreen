@@ -1,10 +1,10 @@
 <template>
   <div class="footer" v-drag>
-    <div class="map conic" @click="maptt">
+    <!-- <div class="map conic" @click="maptt">
       <button v-on:click="show = !show">点我</button>
       <p>11111</p>
-    </div>
-    <transition name="slide-left">
+    </div> -->
+    <!-- <transition name="slide-left">
       <ul v-show="show">
         <li>
           <router-link to="/home">
@@ -18,8 +18,7 @@
         </li>
         <li>
           <router-link to="/tem2">
-            <div class="find"></div>
-            模块3
+            <p>模块3</p>
           </router-link>
         </li>
         <li>
@@ -28,18 +27,43 @@
           </router-link>
         </li>
       </ul>
-      <!-- <div class="nav-bak-inner">
-<div class="nav-item"><div class="nav-center"></div>
-<div class="nav-link">
-<div class="nav-item-link"><div class="nav-bg-link"><span class="nav-text-link">链接三1</span></div></div>
-<div class="nav-item-link"><div class="nav-bg-link"><span class="nav-text-link">链接三2</span></div></div>
-<div class="nav-item-link"><div class="nav-bg-link"><span class="nav-text-link">链接三3</span></div></div>
-<div class="nav-item-link"><div class="nav-bg-link"><span class="nav-text-link">链接三4</span></div></div>
-</div>
-</div>
-</div> -->
-    </transition>
+      </transition> -->
+    <!-- <div class="nav-bak-inner"> -->
+    <div class="nav-item">
+      <div class="nav-center map conic"></div>
+      <div class="nav-link">
+        <div class="nav-item-link">
+          <div class="nav-bg-link">
+            <router-link to="/home" class="nav-text-link">
+              <span>首页</span>
+            </router-link>
+          </div>
+        </div>
+        <div class="nav-item-link">
+          <div class="nav-bg-link">
+            <router-link to="/brand" class="nav-text-link">
+              <span>模块2</span>
+            </router-link>
+          </div>
+        </div>
+        <div class="nav-item-link">
+          <div class="nav-bg-link">
+            <router-link to="/tem2" class="nav-text-link">
+              <span>模块3</span>
+            </router-link>
+          </div>
+        </div>
+        <div class="nav-item-link">
+          <div class="nav-bg-link">
+            <router-link to="/tem3" class="nav-text-link">
+              <span>模块4</span>
+            </router-link>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -85,6 +109,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import './index.css';
 .slide-left-enter {
   opacity: 0;
   -webkit-transform: translate(30px, 0);
