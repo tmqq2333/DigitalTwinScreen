@@ -10,8 +10,7 @@
       <div class="sn-title">金字塔趋势</div>
       <div class="sn-body">
         <div class="wrap-container">
-          <div class="chartsdom"
-               id="chart_ptrend"></div>
+          <div class="chartsdom" id="chart_ptrend"></div>
         </div>
       </div>
     </div>
@@ -19,41 +18,55 @@
 </template>
 
 <script>
-
 export default {
-  name: "pyramidTrend",
-  data () {
+  name: 'pyramidTrend',
+  data() {
     return {
       option: null,
       dataMap: {}
     }
   },
-  mounted () {
-    this.getEchart();
+  mounted() {
+    this.getEchart()
   },
   methods: {
-    dataFormatter (obj) {
-      let pList = ['长沙', '湘潭', '株洲', '岳阳', '邵阳', '衡阳', '益阳', '娄底', '怀化', '湘西', '张家界', '郴州', '常德', '永州'];
-      let temp;
+    dataFormatter(obj) {
+      let pList = [
+        '长沙',
+        '湘潭',
+        '株洲',
+        '岳阳',
+        '邵阳',
+        '衡阳',
+        '益阳',
+        '娄底',
+        '怀化',
+        '湘西',
+        '张家界',
+        '郴州',
+        '常德',
+        '永州'
+      ]
+      let temp
       for (let x = 0; x < 3; x++) {
-        let max = 0;
-        let sum = 0;
-        temp = obj[x];
+        let max = 0
+        let sum = 0
+        temp = obj[x]
         for (let i = 0, l = temp.length; i < l; i++) {
-          max = Math.max(max, temp[i]);
-          sum += temp[i];
+          max = Math.max(max, temp[i])
+          sum += temp[i]
           obj[x][i] = {
             name: pList[i],
             value: temp[i]
-          };
+          }
         }
-        obj[x + 'max'] = Math.floor(max / 100) * 100;
-        obj[x + 'sum'] = sum;
+        obj[x + 'max'] = Math.floor(max / 100) * 100
+        obj[x + 'sum'] = sum
       }
-      return obj;
+      return obj
     },
-    getEchart () {
-      let myChart = echarts.init(document.getElementById('chart_ptrend'));
+    getEchart() {
+      let myChart = echarts.init(document.getElementById('chart_ptrend'))
       let itemStyle = {
         barBorderRadius: [15, 0],
         color: '#0084ff'
@@ -62,8 +75,8 @@ export default {
       this.dataMap.dataType = this.dataFormatter({
         2: [124, 145, 261, 54, 195, 131, 150, 39, 11, 40, 23, 51, 45, 88],
         1: [136, 159, 205, 41, 306, 7, 77, 101, 24, 34, 8, 15, 14, 9],
-        0: [118, 128, 220, 47, 92, 14, 9, 11, 113, 61, 11, 22, 33, 5],
-      });
+        0: [118, 128, 220, 47, 92, 14, 9, 11, 113, 61, 11, 22, 33, 5]
+      })
 
       this.option = {
         baseOption: {
@@ -85,10 +98,10 @@ export default {
               color: '#01d8ff',
               symbolSize: 10,
               borderColor: 'rgba(1, 216, 255, 0.5)',
-              borderWidth: 5,
+              borderWidth: 5
             },
             controlStyle: {
-              show: false,
+              show: false
             },
             itemStyle: {
               borderColor: '#004b85',
@@ -104,7 +117,7 @@ export default {
               checkpointStyle: {
                 color: '#01d8ff',
                 borderColor: 'rgba(1, 216, 255, 0.5)',
-                borderWidth: 5,
+                borderWidth: 5
               },
               itemStyle: {
                 color: '#01d8ff',
@@ -118,88 +131,115 @@ export default {
             top: '10%',
             bottom: '25%'
           },
-          xAxis: [{
-            type: 'category',
-            axisLabel: {
-              interval: 0
-            },
-            data: ['长沙', '湘潭', '株洲', '岳阳', '邵阳', '衡阳', '益阳', '娄底', '怀化', '湘西', '张家界', '郴州', '常德', '永州'],
-            splitLine: {
-              show: false
-            },
-            axisTick: {
-              show: false
-            },
-            axisLine: {
-              show: true,
-              lineStyle: {
-                color: '#2867a8',
-              }
-            },
-          }],
-          yAxis: [{
-            type: 'value',
-            name: '家',
-            splitLine: {
-              show: false
-            },
-            axisTick: {
-              show: false
-            },
-            axisLine: {
-              show: true,
-              lineStyle: {
-                color: '#2867a8'
+          xAxis: [
+            {
+              type: 'category',
+              axisLabel: {
+                interval: 0
+              },
+              data: [
+                '长沙',
+                '湘潭',
+                '株洲',
+                '岳阳',
+                '邵阳',
+                '衡阳',
+                '益阳',
+                '娄底',
+                '怀化',
+                '湘西',
+                '张家界',
+                '郴州',
+                '常德',
+                '永州'
+              ],
+              splitLine: {
+                show: false
+              },
+              axisTick: {
+                show: false
+              },
+              axisLine: {
+                show: true,
+                lineStyle: {
+                  color: '#2867a8'
+                }
               }
             }
-          }],
-          series: [{
-            name: '一类',
-            type: 'bar',
-            barWidth: 15,
-            legendHoverLink: true,
-            label: {
-              show: true,
-              position: 'top',
-              color: '#fff'
-            },
-          }]
+          ],
+          yAxis: [
+            {
+              type: 'value',
+              name: '家',
+              splitLine: {
+                show: false
+              },
+              axisTick: {
+                show: false
+              },
+              axisLine: {
+                show: true,
+                lineStyle: {
+                  color: '#2867a8'
+                }
+              }
+            }
+          ],
+          series: [
+            {
+              name: '一类',
+              type: 'bar',
+              barWidth: 15,
+              legendHoverLink: true,
+              label: {
+                show: true,
+                position: 'top',
+                color: '#fff'
+              }
+            }
+          ]
         },
-        options: [{
-          series: [{
-            data: this.dataMap.dataType['0'],
-            itemStyle: itemStyle
-          }]
-        }, {
-          series: [{
-            data: this.dataMap.dataType['1'],
-            itemStyle: itemStyle
-          }]
-        }, {
-          series: [{
-            data: this.dataMap.dataType['2'],
-            itemStyle: itemStyle
-          }]
-        }]
+        options: [
+          {
+            series: [
+              {
+                data: this.dataMap.dataType['0'],
+                itemStyle: itemStyle
+              }
+            ]
+          },
+          {
+            series: [
+              {
+                data: this.dataMap.dataType['1'],
+                itemStyle: itemStyle
+              }
+            ]
+          },
+          {
+            series: [
+              {
+                data: this.dataMap.dataType['2'],
+                itemStyle: itemStyle
+              }
+            ]
+          }
+        ]
       }
 
-      myChart.setOption(this.option, true);
+      myChart.setOption(this.option, true)
 
       window.addEventListener('resize', () => {
-        myChart.resize();
-      });
+        myChart.resize()
+      })
     }
   },
-  beforeDestroy () {
-
-  }
-};
+  beforeDestroy() {}
+}
 </script>
 
 <style lang="scss" scoped>
 .sn-container {
-  left: 666px;
-  top: 610px;
   width: 586px;
   height: 320px;
   .chartsdom {

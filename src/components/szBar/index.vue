@@ -198,8 +198,6 @@ export default {
 
 <style lang="scss" scoped>
 .sn-container {
-  left: 1380px;
-  top: 610px;
   width: 490px;
   height: 320px;
   .chartsdom {

@@ -1,121 +1,171 @@
-<!--
- 描述: 环形气泡图
- 作者: Jack Chen
- 日期: 2020-04-29
--->
-
 <template>
-  <div class="wrap-container sn-container"> 
-    <div class="sn-content"> 
-      <div class="sn-title">环形气泡图</div> 
-      <div class="sn-body"> 
+  <div class="wrap-container sn-container">
+    <div class="sn-content">
+      <div class="sn-title">环形气泡图</div>
+      <div class="sn-body">
         <div class="wrap-container">
           <div class="chartsdom" id="chart_pin"></div>
           <div class="updef"></div>
-          <div class="definfo definfo0"><span>8个</span><span></span></div>
-          <div class="definfo definfo1"><span>10个</span><span></span></div>
-          <div class="definfo definfo2"><span>35个</span><span></span></div>
-          <div class="definfo definfo3"><span>38个</span><span></span></div>
-          <div class="definfo definfo4"><span>48个</span><span></span></div>
-          <div class="definfo definfo5"><span>55个</span><span></span></div>
-          <div class="definfo definfo6"><span>42个</span><span></span></div>
-          <div class="definfo definfo7"><span>95个</span><span></span></div>
-        </div> 
-      </div> 
-    </div>   
+          <div class="definfo definfo0">
+            <span>8个</span>
+            <span></span>
+          </div>
+          <div class="definfo definfo1">
+            <span>10个</span>
+            <span></span>
+          </div>
+          <div class="definfo definfo2">
+            <span>35个</span>
+            <span></span>
+          </div>
+          <div class="definfo definfo3">
+            <span>38个</span>
+            <span></span>
+          </div>
+          <div class="definfo definfo4">
+            <span>48个</span>
+            <span></span>
+          </div>
+          <div class="definfo definfo5">
+            <span>55个</span>
+            <span></span>
+          </div>
+          <div class="definfo definfo6">
+            <span>42个</span>
+            <span></span>
+          </div>
+          <div class="definfo definfo7">
+            <span>95个</span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "ringPin",
+  name: 'ringPin',
   data() {
     return {
-      option: null,
-      
+      option: null
     }
   },
   mounted() {
-    this.getEchart();
+    this.getEchart()
   },
   methods: {
     getEchart() {
-      let myChart = echarts.init(document.getElementById('chart_pin'));
+      let myChart = echarts.init(document.getElementById('chart_pin'))
       let linearGradient0 = {
-        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-          offset: 0, 
-          color: '#0a49c2'
-        },{
-          offset: 1, 
-          color: '#13adc5'
-        }])
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: '#0a49c2'
+          },
+          {
+            offset: 1,
+            color: '#13adc5'
+          }
+        ])
       }
       let linearGradient1 = {
-        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-          offset: 0, 
-          color: '#0c388d'
-        },{
-          offset: 1, 
-          color: '#137ff6'
-        }])
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: '#0c388d'
+          },
+          {
+            offset: 1,
+            color: '#137ff6'
+          }
+        ])
       }
       let linearGradient2 = {
-        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-          offset: 0, 
-          color: '#05247a'
-        },{
-          offset: 1, 
-          color: '#183cd7'
-        }])
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: '#05247a'
+          },
+          {
+            offset: 1,
+            color: '#183cd7'
+          }
+        ])
       }
       let linearGradient3 = {
-        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-          offset: 0, 
-          color: '#064d9d'
-        },{
-          offset: 1, 
-          color: '#00b977'
-        }])
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: '#064d9d'
+          },
+          {
+            offset: 1,
+            color: '#00b977'
+          }
+        ])
       }
       let linearGradient4 = {
-        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-          offset: 0, 
-          color: '#133389'
-        },{
-          offset: 1, 
-          color: '#5e51e3'
-        }])
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: '#133389'
+          },
+          {
+            offset: 1,
+            color: '#5e51e3'
+          }
+        ])
       }
       let linearGradient5 = {
-        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-          offset: 0, 
-          color: '#2a54a4'
-        },{
-          offset: 1, 
-          color: '#ff900e'
-        }])
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: '#2a54a4'
+          },
+          {
+            offset: 1,
+            color: '#ff900e'
+          }
+        ])
       }
       let linearGradient6 = {
-        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-          offset: 0, 
-          color: '#5a847f'
-        },{
-          offset: 1, 
-          color: '#e3de24'
-        }])
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: '#5a847f'
+          },
+          {
+            offset: 1,
+            color: '#e3de24'
+          }
+        ])
       }
       let linearGradient7 = {
-        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-          offset: 0, 
-          color: '#38828a'
-        },{
-          offset: 1, 
-          color: '#61ac62'
-        }])
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: '#38828a'
+          },
+          {
+            offset: 1,
+            color: '#61ac62'
+          }
+        ])
       }
 
       this.option = {
-        color: ['#05bbdf', '#1170e1', '#1b40e3', '#00c86c', '#5e51e3', '#ff9235', '#fef51e', '#399632'],
+        color: [
+          '#05bbdf',
+          '#1170e1',
+          '#1b40e3',
+          '#00c86c',
+          '#5e51e3',
+          '#ff9235',
+          '#fef51e',
+          '#399632'
+        ],
         legend: {
           show: true,
           orient: 'vertical',
@@ -124,319 +174,356 @@ export default {
           data: ['2020年', '2019年', '2018年', '2017年', '2016年', '2015年', '2014年', '2013年'],
           textStyle: {
             color: '#fff',
-            fontSize: 14,
+            fontSize: 14
           },
           itemWidth: 20,
           itemHeight: 10
         },
-        series: [{
-          name: '2020年',
-          type: 'pie',
-          clockWise: false,
-          startAngle: 0,
-          hoverAnimation: false,
-          radius: ['85%', '90%'],
-          center: ['40%', '50%'],
-          label: {
-            normal: {
-              show: false
+        series: [
+          {
+            name: '2020年',
+            type: 'pie',
+            clockWise: false,
+            startAngle: 0,
+            hoverAnimation: false,
+            radius: ['85%', '90%'],
+            center: ['40%', '50%'],
+            label: {
+              normal: {
+                show: false
+              }
             },
-          },
-          labelLine: {
-            normal: {
-              show: false
-            }
-          },
-          data: [{
-            value: 300,
-            itemStyle: {
+            labelLine: {
               normal: {
-                color: 'rgba(0, 0, 0, 0)'
+                show: false
               }
-            }
-          },{
-            value: 270,
-            itemStyle: linearGradient0
-          },{
-            value: 30,
-            itemStyle: {
-              normal: {
-                color: '#053f67'
-              }
-            }
-          }]
-        },{
-          name: '2019年',
-          type: 'pie',
-          clockWise: false,
-          startAngle: 0,
-          hoverAnimation: false,
-          radius: ['75%', '80%'],
-          center: ['40%', '50%'],
-          label: {
-            normal: {
-              show: false
             },
-          },
-          labelLine: {
-            normal: {
-              show: false
-            }
-          },
-          data: [{
-            value: 300,
-            itemStyle: {
-              normal: {
-                color: 'rgba(0, 0, 0, 0)'
+            data: [
+              {
+                value: 300,
+                itemStyle: {
+                  normal: {
+                    color: 'rgba(0, 0, 0, 0)'
+                  }
+                }
+              },
+              {
+                value: 270,
+                itemStyle: linearGradient0
+              },
+              {
+                value: 30,
+                itemStyle: {
+                  normal: {
+                    color: '#053f67'
+                  }
+                }
               }
-            }
-          },{
-            value: 180,
-            itemStyle: linearGradient1
-          },{
-            value: 120,
-            itemStyle: {
+            ]
+          },
+          {
+            name: '2019年',
+            type: 'pie',
+            clockWise: false,
+            startAngle: 0,
+            hoverAnimation: false,
+            radius: ['75%', '80%'],
+            center: ['40%', '50%'],
+            label: {
               normal: {
-                color: '#062d67'
+                show: false
               }
-            }
-          }]
-        },{
-          name: '2018年',
-          type: 'pie',
-          clockWise: false,
-          startAngle: 0,
-          hoverAnimation: false,
-          radius: ['65%', '70%'],
-          center: ['40%', '50%'],
-          label: {
-            normal: {
-              show: false
             },
-          },
-          labelLine: {
-            normal: {
-              show: false
-            }
-          },
-          data: [{
-            value: 300,
-            itemStyle: {
+            labelLine: {
               normal: {
-                color: 'rgba(0, 0, 0, 0)'
+                show: false
               }
-            }
-          },{
-            value: 220,
-            itemStyle: linearGradient2
-          },{
-            value: 80,
-            itemStyle: {
-              normal: {
-                color: '#0c266a'
-              }
-            }
-          }]
-        },{
-          name: '2017年',
-          type: 'pie',
-          clockWise: false,
-          startAngle: 0,
-          hoverAnimation: false,
-          radius: ['55%', '60%'],
-          center: ['40%', '50%'],
-          label: {
-            normal: {
-              show: false
             },
-          },
-          labelLine: {
-            normal: {
-              show: false
-            }
-          },
-          data: [{
-            value: 300,
-            itemStyle: {
-              normal: {
-                color: 'rgba(0, 0, 0, 0)'
+            data: [
+              {
+                value: 300,
+                itemStyle: {
+                  normal: {
+                    color: 'rgba(0, 0, 0, 0)'
+                  }
+                }
+              },
+              {
+                value: 180,
+                itemStyle: linearGradient1
+              },
+              {
+                value: 120,
+                itemStyle: {
+                  normal: {
+                    color: '#062d67'
+                  }
+                }
               }
-            }
-          },{
-            value: 210,
-            itemStyle: linearGradient3
-          },{
-            value: 90,
-            itemStyle: {
+            ]
+          },
+          {
+            name: '2018年',
+            type: 'pie',
+            clockWise: false,
+            startAngle: 0,
+            hoverAnimation: false,
+            radius: ['65%', '70%'],
+            center: ['40%', '50%'],
+            label: {
               normal: {
-                color: '#03414f'
+                show: false
               }
-            }
-          }]
-        },{
-          name: '2016年',
-          type: 'pie',
-          clockWise: false,
-          startAngle: 0,
-          hoverAnimation: false,
-          radius: ['45%', '50%'],
-          center: ['40%', '50%'],
-          label: {
-            normal: {
-              show: false
             },
-          },
-          labelLine: {
-            normal: {
-              show: false
-            }
-          },
-          data: [{
-            value: 300,
-            itemStyle: {
+            labelLine: {
               normal: {
-                color: 'rgba(0, 0, 0, 0)'
+                show: false
               }
-            }
-          },{
-            value: 150,
-            itemStyle: linearGradient4
-          },{
-            value: 150,
-            itemStyle: {
-              normal: {
-                color: '#142868'
-              }
-            }
-          }]
-        },{
-          name: '2015年',
-          type: 'pie',
-          clockWise: false,
-          startAngle: 0,
-          hoverAnimation: false,
-          radius: ['35%', '40%'],
-          center: ['40%', '50%'],
-          label: {
-            normal: {
-              show: false
             },
-          },
-          labelLine: {
-            normal: {
-              show: false
-            }
-          },
-          data: [{
-            value: 300,
-            itemStyle: {
-              normal: {
-                color: 'rgba(0, 0, 0, 0)'
+            data: [
+              {
+                value: 300,
+                itemStyle: {
+                  normal: {
+                    color: 'rgba(0, 0, 0, 0)'
+                  }
+                }
+              },
+              {
+                value: 220,
+                itemStyle: linearGradient2
+              },
+              {
+                value: 80,
+                itemStyle: {
+                  normal: {
+                    color: '#0c266a'
+                  }
+                }
               }
-            }
-          },{
-            value: 150,
-            itemStyle: linearGradient5
-          },{
-            value: 150,
-            itemStyle: {
+            ]
+          },
+          {
+            name: '2017年',
+            type: 'pie',
+            clockWise: false,
+            startAngle: 0,
+            hoverAnimation: false,
+            radius: ['55%', '60%'],
+            center: ['40%', '50%'],
+            label: {
               normal: {
-                color: '#373546'
+                show: false
               }
-            }
-          }]
-        },{
-          name: '2014年',
-          type: 'pie',
-          clockWise: false,
-          startAngle: 0,
-          hoverAnimation: false,
-          radius: ['25%', '30%'],
-          center: ['40%', '50%'],
-          label: {
-            normal: {
-              show: false
             },
-          },
-          labelLine: {
-            normal: {
-              show: false
-            }
-          },
-          data: [{
-            value: 300,
-            itemStyle: {
+            labelLine: {
               normal: {
-                color: 'rgba(0, 0, 0, 0)'
+                show: false
               }
-            }
-          },{
-            value: 50,
-            itemStyle: linearGradient6
-          },{
-            value: 250,
-            itemStyle: {
-              normal: {
-                color: '#35483f'
-              }
-            }
-          }]
-        },{
-          name: '2013年',
-          type: 'pie',
-          clockWise: false,
-          startAngle: 0,
-          hoverAnimation: false,
-          radius: ['15%', '20%'],
-          center: ['40%', '50%'],
-          label: {
-            normal: {
-              show: false
             },
-          },
-          labelLine: {
-            normal: {
-              show: false
-            }
-          },
-          data: [{
-            value: 300,
-            itemStyle: {
-              normal: {
-                color: 'rgba(0, 0, 0, 0)'
+            data: [
+              {
+                value: 300,
+                itemStyle: {
+                  normal: {
+                    color: 'rgba(0, 0, 0, 0)'
+                  }
+                }
+              },
+              {
+                value: 210,
+                itemStyle: linearGradient3
+              },
+              {
+                value: 90,
+                itemStyle: {
+                  normal: {
+                    color: '#03414f'
+                  }
+                }
               }
-            }
-          },{
-            value: 50,
-            itemStyle: linearGradient7
-          },{
-            value: 250,
-            itemStyle: {
+            ]
+          },
+          {
+            name: '2016年',
+            type: 'pie',
+            clockWise: false,
+            startAngle: 0,
+            hoverAnimation: false,
+            radius: ['45%', '50%'],
+            center: ['40%', '50%'],
+            label: {
               normal: {
-                color: '#0f3541'
+                show: false
               }
-            }
-          }]
-        }]
+            },
+            labelLine: {
+              normal: {
+                show: false
+              }
+            },
+            data: [
+              {
+                value: 300,
+                itemStyle: {
+                  normal: {
+                    color: 'rgba(0, 0, 0, 0)'
+                  }
+                }
+              },
+              {
+                value: 150,
+                itemStyle: linearGradient4
+              },
+              {
+                value: 150,
+                itemStyle: {
+                  normal: {
+                    color: '#142868'
+                  }
+                }
+              }
+            ]
+          },
+          {
+            name: '2015年',
+            type: 'pie',
+            clockWise: false,
+            startAngle: 0,
+            hoverAnimation: false,
+            radius: ['35%', '40%'],
+            center: ['40%', '50%'],
+            label: {
+              normal: {
+                show: false
+              }
+            },
+            labelLine: {
+              normal: {
+                show: false
+              }
+            },
+            data: [
+              {
+                value: 300,
+                itemStyle: {
+                  normal: {
+                    color: 'rgba(0, 0, 0, 0)'
+                  }
+                }
+              },
+              {
+                value: 150,
+                itemStyle: linearGradient5
+              },
+              {
+                value: 150,
+                itemStyle: {
+                  normal: {
+                    color: '#373546'
+                  }
+                }
+              }
+            ]
+          },
+          {
+            name: '2014年',
+            type: 'pie',
+            clockWise: false,
+            startAngle: 0,
+            hoverAnimation: false,
+            radius: ['25%', '30%'],
+            center: ['40%', '50%'],
+            label: {
+              normal: {
+                show: false
+              }
+            },
+            labelLine: {
+              normal: {
+                show: false
+              }
+            },
+            data: [
+              {
+                value: 300,
+                itemStyle: {
+                  normal: {
+                    color: 'rgba(0, 0, 0, 0)'
+                  }
+                }
+              },
+              {
+                value: 50,
+                itemStyle: linearGradient6
+              },
+              {
+                value: 250,
+                itemStyle: {
+                  normal: {
+                    color: '#35483f'
+                  }
+                }
+              }
+            ]
+          },
+          {
+            name: '2013年',
+            type: 'pie',
+            clockWise: false,
+            startAngle: 0,
+            hoverAnimation: false,
+            radius: ['15%', '20%'],
+            center: ['40%', '50%'],
+            label: {
+              normal: {
+                show: false
+              }
+            },
+            labelLine: {
+              normal: {
+                show: false
+              }
+            },
+            data: [
+              {
+                value: 300,
+                itemStyle: {
+                  normal: {
+                    color: 'rgba(0, 0, 0, 0)'
+                  }
+                }
+              },
+              {
+                value: 50,
+                itemStyle: linearGradient7
+              },
+              {
+                value: 250,
+                itemStyle: {
+                  normal: {
+                    color: '#0f3541'
+                  }
+                }
+              }
+            ]
+          }
+        ]
       }
 
-      myChart.setOption(this.option, true);
+      myChart.setOption(this.option, true)
 
       window.addEventListener('resize', () => {
-        myChart.resize();
-      });
+        myChart.resize()
+      })
     }
   },
-  beforeDestroy() {
-    
-  }
-};
+  beforeDestroy() {}
+}
 </script>
 
 <style lang="scss" scoped>
 .sn-container {
-  left: 50px;
-  top: 1120px;
   width: 432px;
   height: 400px;
   .chartsdom {
@@ -459,7 +546,7 @@ export default {
   .definfo {
     position: absolute;
     top: 50%;
-    transform: translate(0%,-50%);
+    transform: translate(0%, -50%);
     white-space: nowrap;
     font-size: 14px;
     color: #fff;

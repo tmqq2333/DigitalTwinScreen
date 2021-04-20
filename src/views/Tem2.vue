@@ -3,13 +3,14 @@
     <div class="wrap" ref="editor">
       <div class="top"><topanml></topanml></div>
 
-      <sinan />
-
-      <scrollArc />
-      <szBar />
+      <div class="top-map">
+        <sinan />
+      </div>
+      <div class="bottom-data">
+        <scrollArc />
+        <szBar />
+      </div>
       <Footer />
-
-      <div class="divider"></div>
     </div>
   </div>
 </template>
@@ -64,16 +65,23 @@ export default {
       overflow: auto;
       position: relative;
     }
-    .divider {
-      position: absolute;
-      left: 50px;
-
-      width: 90%;
-      height: 50px;
-      background-color: gold;
-      border: none;
-      background: transparent;
-    }
   }
+}
+.bottom-data {
+  width: 1840px;
+  height: 320px;
+  position: absolute;
+  left: 40px;
+  bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.top-map {
+  width: 1813px;
+  height: 620px;
+  position: absolute;
+  left: 52px;
+  top: 90px;
 }
 </style>

@@ -7,8 +7,8 @@
 <template>
   <div class="wrap-container sn-container">
     <div class="sn-content">
-      <div class="sn-title">司南排名图</div>
-      <div class="sn-body"></div>
+      <!-- <div class="sn-title">司南排名图</div>
+      <div class="sn-body"></div> -->
     </div>
   </div>
 </template>
@@ -27,9 +27,7 @@ export default {
 
 <style lang="scss" scoped>
 .sn-container {
-  left: 50px;
-  top: 110px;
-  width: 1820px;
-  height: 680px;
+  width: 1813px;
+  height: 100%;
 }
 </style>

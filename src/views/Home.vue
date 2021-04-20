@@ -4,8 +4,9 @@
       <div class="top">
         <topanml />
       </div>
-
-      <sinan />
+      <div class="top-map">
+        <sinan />
+      </div>
       <!-- <seamless /> 
       <pyramid /> -->
 
@@ -61,9 +62,6 @@ export default {
 
 <style lang="scss" scoped>
 .home-container {
-  // position: absolute;
-  // left: 0;
-  // top: 0;
   width: 100vw;
   height: 100vh;
   .wrap {
@@ -103,10 +101,20 @@ export default {
   }
 }
 .bottom-data {
-  width: 1080px;
-  height: 400px;
+  width: 1840px;
+  height: 320px;
   position: absolute;
-  left: 20px;
+  left: 40px;
   bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.top-map {
+  width: 1813px;
+  height: 620px;
+  position: absolute;
+  left: 52px;
+  top: 90px;
 }
 </style>

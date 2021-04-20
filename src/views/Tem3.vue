@@ -3,13 +3,16 @@
     <div class="wrap" ref="editor">
       <div class="top"><topanml /></div>
 
-      <sinan />
-
-      <scrollArc />
-      <szBar />
+      <div class="top-map">
+        <sinan />
+      </div>
+      <div class="bottom-data">
+        <ringPin />
+        <rotateColorful />
+        <circleRunway />
+        <scanRadius />
+      </div>
       <Footer />
-
-      <div class="divider">555555555555</div>
     </div>
   </div>
 </template>
@@ -63,16 +66,23 @@ export default {
       border: none;
       overflow: auto;
     }
-    .divider {
-      position: absolute;
-      left: 50px;
-
-      width: 90%;
-      height: 50px;
-      background-color: gold;
-      border: none;
-      background: transparent;
-    }
   }
+}
+.bottom-data {
+  width: 1840px;
+  height: 400px;
+  position: absolute;
+  left: 40px;
+  bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.top-map {
+  width: 1813px;
+  height: 560px;
+  position: absolute;
+  left: 52px;
+  top: 90px;
 }
 </style>
