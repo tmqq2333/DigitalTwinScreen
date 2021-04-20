@@ -1,9 +1,3 @@
-<!--
- 描述: 滚动弧形线
- 作者: Jack Chen
- 日期: 2020-04-20
--->
-
 <template>
   <div class="wrap-container sn-container">
     <div class="sn-content">
@@ -157,8 +151,6 @@ export default {
 
 <style lang="scss" scoped>
 .sn-container {
-  left: 50px;
-  top: 610px;
   width: 1310px;
   height: 320px;
   .chartsdom {

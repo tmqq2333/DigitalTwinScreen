@@ -8,31 +8,21 @@
   <div class="wrap-container sn-container">
     <div class="sn-content">
       <div class="sn-title">司南排名图</div>
-      <div class="sn-body">
-
-      </div>
+      <div class="sn-body"></div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "sinan",
-  data () {
-    return {
-
-    }
+  name: 'sinan',
+  data() {
+    return {}
   },
-  mounted () {
-
-  },
-  methods: {
-
-  },
-  beforeDestroy () {
-
-  }
-};
+  mounted() {},
+  methods: {},
+  beforeDestroy() {}
+}
 </script>
 
 <style lang="scss" scoped>
@@ -40,6 +30,6 @@ export default {
   left: 50px;
   top: 110px;
   width: 1820px;
-  height: 480px;
+  height: 680px;
 }
 </style>

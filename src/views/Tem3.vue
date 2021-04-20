@@ -1,8 +1,7 @@
 <template>
   <div class="home-container">
-    <div class="wrap"
-         ref="editor">
-      <div class="top"></div>
+    <div class="wrap" ref="editor">
+      <div class="top"><topanml /></div>
 
       <sinan />
 
@@ -11,35 +10,25 @@
       <Footer />
 
       <div class="divider">555555555555</div>
-
     </div>
-
   </div>
 </template>
 
 <script>
 import { screenSize } from '@/assets/js/utils'
 
-
 export default {
   name: 'Tem3',
 
-  data () {
-    return {
-
-    }
+  data() {
+    return {}
   },
-  computed: {
-
+  computed: {},
+  created() {},
+  mounted() {
+    screenSize(this.$refs.editor)
   },
-  created () {
-  },
-  mounted () {
-    screenSize(this.$refs.editor);
-  },
-  methods: {
-
-  }
+  methods: {}
 }
 </script>
 
@@ -69,7 +58,7 @@ export default {
       width: 100%;
       height: 80px;
       background-color: transparent;
-      background: url(../assets/img/top_nav.png) no-repeat;
+      background: url(../assets/img/top4.png) no-repeat;
       background-position: 65% 0;
       border: none;
       overflow: auto;

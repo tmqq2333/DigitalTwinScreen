@@ -1,7 +1,7 @@
 <template>
   <div class="home-container">
     <div class="wrap" ref="editor">
-      <div class="top"></div>
+      <div class="top"><topanml></topanml></div>
 
       <sinan />
 
@@ -58,10 +58,11 @@ export default {
       width: 100%;
       height: 80px;
       background-color: transparent;
-      background: url(../assets/img/top_nav.png) no-repeat;
+      background: url(../assets/img/top3.png) no-repeat;
       background-position: 65% 0;
       border: none;
       overflow: auto;
+      position: relative;
     }
     .divider {
       position: absolute;
