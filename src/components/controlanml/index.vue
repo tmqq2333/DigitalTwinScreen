@@ -3,8 +3,9 @@
 </template>
 
 <script>
+import anime from 'animejs/lib/anime.es.js'
 export default {
-  name: 'CollspanButton',
+  name: 'controlanml',
   data() {
     return {
       opened: true
@@ -24,8 +25,8 @@ export default {
       })
     },
     collspanCharts() {
-      this.animePanel('#main-tpl .data-left li', 'up')
-      this.animePanel('#main-tpl .data-right li', 'down')
+      this.animePanel('#main-tpl .data-left>div', 'up')
+      this.animePanel('#main-tpl .data-right>div', 'down')
       this.opened = !this.opened
     }
   }

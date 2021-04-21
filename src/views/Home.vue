@@ -4,9 +4,22 @@
       <div class="top">
         <topanml />
       </div>
-      <div class="top-map">
-        <sinan />
+      <div class="matter" id="main-tpl">
+        <div class="data-left">
+          <cakeLinkage />
+          <pyramidTrend />
+          <dynamicLine />
+        </div>
+        <div class="data-right">
+          <cakeLinkage />
+          <pyramidTrend />
+          <dynamicLine />
+        </div>
+        <controlanml />
       </div>
+      <!-- <div class="top-map">
+        <sinan />
+      </div> -->
       <!-- <seamless /> 
       <pyramid /> -->
 
@@ -17,11 +30,11 @@
       <rotateColorful />
       <circleRunway />
       <scanRadius /> -->
-      <div class="bottom-data">
+      <!-- <div class="bottom-data">
         <cakeLinkage />
         <pyramidTrend />
         <dynamicLine />
-      </div>
+      </div> -->
       <Footer />
       <!-- <staffMix />
       <flashCloud />
@@ -88,33 +101,35 @@ export default {
       border: none;
       overflow: auto;
     }
-    .divider {
-      position: absolute;
-      left: 50px;
-
-      width: 90%;
-      height: 50px;
-      background-color: gold;
-      border: none;
-      background: transparent;
-    }
   }
 }
-.bottom-data {
-  width: 1840px;
-  height: 320px;
-  position: absolute;
-  left: 40px;
-  bottom: 20px;
+%ul-b {
   display: flex;
-  justify-content: space-around;
-  flex-direction: row;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
-.top-map {
-  width: 1813px;
-  height: 620px;
+.matter {
+  margin: auto;
+  width: 1880px;
+  height: 916px;
+  margin-top: 80px;
+  position: relative;
+}
+.data-left {
+  @extend %ul-b;
+  width: 500px;
+  height: 100%;
   position: absolute;
-  left: 52px;
-  top: 90px;
+  left: 0;
+  top: 0;
+}
+.data-right {
+  @extend %ul-b;
+  width: 500px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 </style>

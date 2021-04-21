@@ -5,14 +5,12 @@ import store from './store'
 import vueParticles from 'vue-particles'
 import Vcomp from './components/index'
 import Toast from './components/toast'
-import anime from 'animejs/lib/anime.es.js'
 import '@/assets/styles/base.scss'
 import '@/assets/styles/common.scss'
 import '@/assets/iconfont/iconfont.css'
 
 Vue.use(vueParticles)
 Vue.use(Vcomp)
-Vue.use(anime)
 
 Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。避免无用的体积
 

@@ -1,7 +1,7 @@
 <template>
   <div class="home-container">
     <div class="wrap" ref="editor">
-      <div class="top"><topanml /></div>
+      <div class="top"><span class="anml"></span></div>
 
       <div class="top-map">
         <sinan />
@@ -84,5 +84,22 @@ export default {
   position: absolute;
   left: 52px;
   top: 90px;
+}
+.anml {
+  display: inline-block;
+  width: 138px;
+  height: 22px;
+  background: url(../assets/img/aml.png) no-repeat 58% center;
+  position: absolute;
+  left: 38%;
+  top: 67px;
+  animation: tran-change 2.2s linear infinite alternate;
+}
+@keyframes tran-change {
+  from {
+  }
+  to {
+    transform: translateX(304px);
+  }
 }
 </style>

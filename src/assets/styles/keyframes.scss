@@ -1,0 +1,40 @@
+@keyframes top-fly1 {
+  0% {
+    transform: translateX(0);
+    opacity: 0.1;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateX(300px);
+    opacity: 0.1;
+  }
+}
+@keyframes top-fly2 {
+  0% {
+    transform: translateX(0);
+    opacity: 0.1;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateX(-300px);
+    opacity: 0.1;
+  }
+}
+@keyframes span-flash {
+  0%, 100% {
+    opacity: 0.1;
+  }
+
+  70% {
+    opacity: 0.95;
+  }
+
+}
